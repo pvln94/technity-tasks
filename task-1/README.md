@@ -1,0 +1,1 @@
+I have completed this task with the resources you have provided in task folder.For the social media icons,i have taken them with the help of google.And adjusted the total web page according to the web page png you have given and completed.😎
