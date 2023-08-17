@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 10px 50px;
+            font-family: Arial, sans-serif;
+            background-color: hsl(360, 80%, 90%);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border: 2px solid darkorange;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form {
+            font-size: 20px;
+        }
+
+        .form input,
+        .form select,
+        .form label {
+            display: inline-block;
+            width: 80%;
+            padding: 10px 15px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-size: 15px;
+            vertical-align: middle;
+            margin: 10px;
+        }
+
+        .form input[type="radio"],
+        .form input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form .inline-container {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .but {
+            border-radius: 9px;
+            width: 100px;
+            height: 30px;
+            font-size: 15px;
+            margin: 10px auto;
+            display: block;
+            background-color: darkorange;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .but:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Amrita University Online Admission Form</h1>
+    <form action="message.html" name="myForm" onsubmit="return Formvalidation()" method="post">
+        <table align="center" bgcolor="white" width="50%" cellspacing="15">
+            <tr bgcolor="darkorange">
+                <td colspan="2" align="center" style="padding: 10px; font-size: 24px;"><strong>Application Form</strong></td>
+            </tr>
+
+            <tr>
+            <td>
+                <div class="form" id="name">
+                    First name: <input type="text" name="fname" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="form" id="lname">
+                    Last name: <input type="text" name="lname" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+            
+        <tr>
+            <td>
+                <div class="form" id="pass">
+                    Password: <input type="password" name="fpass" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                <div class="form" id="cpass">
+                    Confirm Password: <input type="password" name="fcpass" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                <div class="form" id="email">
+                    Email: <input type="email" name="femail" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="form" id="phone">
+                    Phone: <input type="tel" name="fphone" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="form" id="date">
+                    DOB: <input type="date" name="fdate" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+
+<tr>
+    <td>
+        <div class="form" id="gender">
+            Gender:
+            <input type="radio" name="gender" value="male" id="male">
+            Male
+            <input type="radio" name="gender" value="female" id="female">
+            Female
+            <input type="radio" name="gender" value="other" id="other">
+            Other
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>
+        <div class="form" id="hobbies">
+            Hobbies:
+            <input type="checkbox" value="Cricket" name="hobby" id="ch1">
+            Cricket
+            <input type="checkbox" value="dance" name="hobby" id="ch2">
+            Dance
+            <input type="checkbox" value="Sing" name="hobby" id="ch3">
+            Sing
+            <input type="checkbox" value="read" name="hobby" id="ch4">
+            Reading
+        </div>
+    </td>
+</tr>
+
+
+
+        <tr>
+            <td>
+                <div class="form" id="qualification">
+                    Qualification: 
+                    <select name="qual">
+                        <option value="10th">10th</option>
+                        <option value="12th">12th</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="undergraduation">Undergraduation</option>
+                    </select>
+                    <span class="error"></span>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <div class="form" id="link">
+                    Give link of your last year's project: <input type="url" name="flink" required><span class="error"></span>
+                </div>
+            </td>
+        </tr>
+
+        <tr bgcolor="darkorange" height="40px">
+            <td>
+                <input class="but" type="submit" value="Submit">
+            </td>     
+           </tr>
+               
+    </table>
+    </form>
+</body>
+<script>
+    function clearErrors(){
+
+errors = document.getElementsByClassName('error');
+for(let item of errors)
+{
+    item.innerHTML = "";
+}
+
+
+}
+function seterror(id, error){
+element = document.getElementById(id);
+element.getElementsByClassName('error')[0].innerHTML = error;
+
+}
+
+function Formvalidation(){
+var returnval = true;
+clearErrors();
+
+
+var name = document.forms['myForm']["fname"].value;
+if (name.length<5){
+    seterror("name", "*Length of name is too short");
+    returnval = false;
+}
+
+if (name.length == 0){
+    seterror("name", "*Length of name cannot be zero!");
+    returnval = false;
+}
+
+var email = document.forms['myForm']["femail"].value;
+if (email.length>15){
+    seterror("email", "*Email length is too long");
+    returnval = false;
+}
+
+var phone = document.forms['myForm']["fphone"].value;
+if (phone.length != 10){
+    seterror("phone", "*Phone number should be of 10 digits!");
+    returnval = false;
+}
+
+var password = document.forms['myForm']["fpass"].value;
+if (password.length < 3){
+    seterror("pass", "*Password should be atleast 6 characters long!");
+    returnval = false;
+}
+
+var cpassword = document.forms['myForm']["fcpass"].value;
+if (cpassword != password){
+    seterror("cpass", "*Password and Confirm password should match!");
+    returnval = false;
+}
+
+return returnval;
+}
+
+
+</script>
+</html>
