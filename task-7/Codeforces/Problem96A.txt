@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s1 = scanner.nextLine();
+        
+        int condition = 1;
+        for (int i = 1; i < s1.length(); i++) {
+            if (s1.charAt(i) == s1.charAt(i - 1)) {
+                condition++;
+                if (condition == 7) {
+                    System.out.println("YES");
+                    return;
+                }
+            } else {
+                condition = 1;
+            }
+        }
+        
+        System.out.println("NO");
+    }
+}
