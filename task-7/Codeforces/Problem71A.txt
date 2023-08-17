@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class WayTooLongWords {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();  // consume the newline
+        
+        for (int i = 0; i < n; i++) {
+            String s = scanner.nextLine();
+            if (s.length() > 10) {
+                System.out.println(s.charAt(0) + Integer.toString(s.length() - 2) + s.charAt(s.length() - 1));
+            } else {
+                System.out.println(s);
+            }
+        }
+    }
+}
