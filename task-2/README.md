@@ -1,0 +1,1 @@
+ I had built this web page as shown in "task2.png" file with the help of resources u have provided.This task helped me in recalling  HTML,CSS properties that i have learnt before.I really enjoyed doing this task.
