@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&family=Oswald:wght@200;400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&family=Oswald:wght@200;400&display=swap" rel="stylesheet">
+        <style>
+        /* Base Styles */
+        * {
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #303030;
+        }
+
+        /* Top Navigation Styles */
+        .topnav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        #logo {
+            float: left;
+            margin-left:60px;
+        }
+
+        #nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 17px;
+            margin: 0 10px;
+        }
+
+        #last {
+            float: right;
+            margin-right:80px;
+        }
+
+        /* Container Styles */
+        .container {
+    position: relative;
+    text-align: center;
+    width: 100%; /* Set the container width to the viewport width */
+    overflow: hidden; /* This ensures nothing spills out of the container */
+    margin-left: calc(50% - 50vw); /* This centers the container */
+}
+
+
+.container img {
+    margin-left: calc(50% - 50vw); /* This recenters the image within the container */
+}
+.container img {
+    width: 100vw; /* This will force the image to fill the entire viewport width */
+    margin-left: 0; /* Reset any margin left, we don't need it if the image is the width of the viewport */
+}
+
+
+.img-container {
+            position: relative;
+            height: 150vh; /* You can adjust this value to reduce/increase the height */
+            overflow: hidden;
+        }
+
+        .full-width-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 1;  /* To make sure the text stays above the orange overlay */
+        }
+
+        /* Orange opacity overlay */
+        .img-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 94, 36, 0.6);  /* orange with 60% opacity */
+            z-index: 0;  /* To make sure it stays below the text */
+        }
+
+        .bottom-left {
+            position: absolute;
+            bottom: 90px;
+            left: 16px;
+        }
+        .bottom-left button {
+            margin-right: 100px;
+        }
+
+       
+
+        /* Color Block Styles */
+        .subscribe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+}
+
+.subscribe-btn {
+    background-color: #303030;
+    color: whitesmoke;
+    text-decoration: none;
+    line-height: 35px;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+    padding: 0 30px 0 30px;
+    margin-bottom: 100px; 
+    margin-right: 420px;
+}
+
+.email-input {
+    margin-bottom: 100px;  /* Added space below the email input */
+    width: 700px; /* Adjusted width of the email input */
+    padding-right:250px;
+    padding-left:10px;
+}
+
+.orange pre {
+    margin-bottom: 10px;
+}
+
+.orange {
+    background-color: #e8631c;
+    text-align: center;
+}
+
+
+
+        .black {
+            text-align: center;
+        }
+
+        /* Column and Row Styles */
+        .column {
+            float: left;
+            width: 31.33%;
+            margin: 0 1%;
+        }
+
+        img {
+            display: block;
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        #c {
+            background-color: #303030;
+            text-align: center;
+        }
+
+        .row {
+            margin: 0 10%;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .row1 {
+            display: flex;
+            text-align: center;
+        }
+.row1:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column1, .column3 {
+            float: left;
+            width: 50%;
+        }
+
+        .column1 img, .column3 img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .column3 {
+            padding: 15px;
+            background-color: #e8631c;
+            text-align: left;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Aligns content to the left */
+            padding: 0 15px; /* You can adjust the left and right padding as needed */
+
+        }
+
+        .column3 h1 {
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 0;
+        }
+
+        .column3 button {
+            background-color: #303030;
+            border-radius: 3px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+
+       
+    
+    .email-input {
+        background-color: white;
+        color: black;
+        flex-grow: 1;
+        border: none;
+        height: 40px;
+        margin-left: 450px;
+    }
+    
+    
+
+    /* Remove the default margin of the <pre> tag */
+    
+        .row2 {
+    display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.column2 {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.column4 {
+  flex-basis: 20%;  /* default width */
+  max-width: 50%;   /* maximum width */
+  padding: 10px;
+}
+
+.column4 ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+.column2 b,pre{
+    text-align: left;
+    display: block;
+    margin-left: 50px;
+}
+
+
+.column2 img {
+    display: block;
+    margin: 10px;
+    
+}
+
+.column2-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin-left: 40px;
+}
+
+
+
+       
+
+
+    </style>
+</head>
+
+<body>
+  <div class="topnav">
+    <div id="logo">
+        <img src="6.png" height="50px">
+    </div>
+    <div id="nav" style="font-weight: bold;">
+        <a href="#">HOME</a>
+        <a href="#">PRODUCT</a>
+        <a href="#">PROMO</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+    </div>
+    <div id="last">
+        <img src="7.png" height="30px">
+    </div>
+</div>
+
+    
+<div class="container">
+  <img src="1.png" width="100%">
+  <div class="bottom-left"><span style="font-weight: bold; font-size: 100px;"><pre> Title Here</pre></span>
+      <pre align="left" style="font-weight: bold;font-size: 30px;">      Lorem ipsum dolor sit amet,consectetur
+      adipiscing elit.Vivamus lacinia odio vitae
+      vestibulum vestibulum.
+
+</pre>
+<pre>
+           <button  type="button" onclick="alert('REGISTERED')"  style="border-style: none; background-color: #e8631c; padding:20px 100px 20px 100px; font-size: 20px; font-weight: bold;">REGISTER NOW</button>
+</pre>
+  </div>
+</div>
+      <div class="orange">
+        <pre>
+
+        </pre>
+       <b style="font-weight: bold; font-size: 50px;"> DANCE TOUR</b>
+       <pre>
+       </pre>
+       <pre style=" font-size: 35px;">          Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+                Vivamus lacinia odio vitae vestibulum vestibulum.
+
+        </pre>   
+        <div class="row">
+            <div class="column">
+              <img src="2.png"  style="width:100%">
+              <div id=c>
+                <pre>
+                </pre>
+                <b style="font-weight: bold; font-size: 25px;">AMERICA</b>
+                <pre></pre>
+        <pre style="font-size: 18px;">Lorem ipsum dolor sit amet,
+consectetur adipiscing elit.
+
+</pre>
+              </div>
+            </div>
+            <div class="column">
+              <img src="3.png"  style="width:100%">
+              <div id=c>
+                <pre>
+                </pre>
+                <b style="font-weight: bold; font-size: 25px;">ASIA</b>
+                <pre></pre>
+                <pre style="font-size: 18px;">Lorem ipsum dolor sit amet,
+consectetur adipiscing elit.
+
+</pre>
+              </div>
+            </div>
+            <div class="column">
+              <img src="4.png"  style="width:100%">
+              <div id=c>
+                <pre>
+                </pre>
+               <b style="font-weight: bold; font-size: 25px;">AUSTRALIA</b> 
+               <pre></pre>
+               <pre style="font-size: 18px;">Lorem ipsum dolor sit amet,
+consectetur adipiscing elit.
+
+</pre>
+              </div>
+            </div>
+          </div>
+          <pre>
+
+          </pre>
+    </div>
+
+    <div class="black">
+        <pre>
+
+        </pre>
+        <b style="font-weight: bold; font-size: 50px;"> PRICING </b>
+        <pre>
+        </pre>
+        <pre style=" font-size: 35px;">           Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+               Vivamus lacinia odio vitae vestibulum vestibulum.
+         
+    </pre>   
+    
+    
+   
+    
+     <div class="row">
+        <div class="column" style="background-color: #e8631c; border-radius:5px;">
+            <div class="image-container" style="padding: 10px;">
+                <pre>
+
+                </pre>
+                <img src="5.png" style="width:35%; max-width:300px; height:100px;">
+                <pre>
+                </pre>
+            </div>
+            <div id="c1" style="background-color: #e8631c;">
+                <b style="font-weight: bolder; font-size: 30px;">BASIC</b>
+                <pre>
+                </pre>
+                <p style="font-size: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <pre>
+                </pre>
+            </div>
+            <button style="background-color: #303030; border-radius:3px; padding:15px 90px 15px 90px; border-style: none; font-size: 20px;">$150.00</button>
+            <pre>
+            </pre>
+        </div>
+        
+    
+        <div class="column" style="background-color: #e8631c; border-radius:5px;">
+            <div class="image-container" style="padding: 10px;">
+                <pre>
+
+                </pre>
+                <img src="5.png" style="width:35%; max-width:300px; height:100px;">
+                <pre>
+                </pre>
+            </div>
+            <div id="c1" style="background-color: #e8631c;">
+                <b style="font-weight: bolder; font-size: 30px;">PROFESSIONAL</b>
+                <pre>
+                </pre>
+                <p style="font-size: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <pre>
+                </pre>
+            </div>
+            <button style="background-color: #303030; border-radius:3px; padding:15px 90px 15px 90px; border-style: none;font-size: 20px;">$200.00</button>
+            <pre>
+            </pre>
+        </div>
+    
+       <div class="column" style="background-color: #e8631c; border-radius:5px;">
+            <div class="image-container" style="padding: 10px;">
+                <pre>
+
+                </pre>
+                <img src="5.png" style="width:35%; max-width:300px; height:100px;">
+                <pre>
+                </pre>
+            </div>
+            <div id="c1" style="background-color: #e8631c;">
+                <b style="font-weight: bolder; font-size: 30px;">ULTIMATE</b>
+                <pre>
+                </pre>
+                <p style="font-size: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <pre>
+                </pre>
+            </div>
+            <button style="background-color: #303030; border-radius:3px; padding:15px 90px 15px 90px; border-style: none; font-size: 20px;">$250.00</button>
+            <pre>
+            </pre>
+        </div>
+    </div> 
+    
+        <pre>
+
+
+        </pre>   
+     </div>
+     
+     <div class="row1">
+        <div class="column1">
+            <img src="3.png" alt="Dance Image 1">
+        </div>
+        <div class="column3" style="padding-top: 170px; padding-left: 100px;">
+            <h1 style="font-weight: bolder; font-size: 50px;">AMAZING DANCE</h1>
+            <pre>
+
+            </pre>
+            <p style="font-size: 25px;">Lorem ipsum dolor sit amet, consectet-<br>
+                tur adipiscing elit. Vivamus lacinia<br>
+                odio vitae vestibulum vestibulum.</p>
+                <pre>
+    
+                </pre>
+                <button style="padding:20px 100px 20px 100px; font-size: 20px;">READ MORE</button>    
+        </div>
+    </div>
+    
+    <div class="row1">
+        <div class="column3"  style="padding-top: 170px; padding-left: 100px;">
+            <h1 style="font-weight: bolder; font-size: 50px;">BEST DANCE</h1>
+            <pre>
+
+            </pre>
+            <p style="font-size: 25px;">Lorem ipsum dolor sit amet, consectet-<br>
+            tur adipiscing elit. Vivamus lacinia<br>
+            odio vitae vestibulum vestibulum.</p>
+            <pre>
+
+            </pre>
+            <button style="padding:20px 100px 20px 100px; font-size: 20px;">READ MORE</button>
+        </div>
+        <div class="column1">
+            <img src="4.png" alt="Dance Image 2">
+        </div>
+    </div>
+    
+
+
+
+    
+      
+      <div class="black">
+        <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                 <b style="font-weight: bolder; font-size: 50px;">OUR STATISTICS
+               </b></pre>
+     
+      <pre style="font-size: 35px;">           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vivamus lacinia odio vitae vestibulum vestibulum.
+
+
+
+</pre>
+      <div class="row" >
+        <div class="column"><pre style="font-size: 35px;">
+
+<span style="font-weight: bolder; font-size: 50px;">1240+</span>
+  Club
+        </pre>
+                   </div>
+        
+        <div class="column"><pre style="font-size: 35px;">
+
+     <span style="font-weight: bolder; font-size: 50px;">2000+</span>
+Active Member
+        </pre>
+                    </div>
+        
+        <div class="column"><pre style="font-size: 35px;">
+
+   <span style="font-weight: bolder; font-size: 50px;">1.000+</span>
+Community
+            </pre>
+                  </div>
+        
+       </div>
+       <pre>
+
+
+
+
+
+
+
+       </pre>
+      </div>
+
+     <div class="img-container">
+    <img src="4.png" class="full-width-img" alt="Descriptive Alt Text">
+    <div class="centered">
+        <pre align="left" style="font-size: 35px;">Lorem ipsum dolor sit amet,consectetur
+adipiscing elit.Vivamus lacinia odio vitae
+                  vestibulum vestibulum.
+
+
+                        <b style="font-weight: bold; font-size: 40px;">HERBERT SIMON</b>
+</pre>
+       
+    </div>
+</div>
+    
+<div class="orange">
+    <pre>
+
+
+
+
+                                                                                                            <b style="font-weight: bolder; font-size: 55px;">SUBSCRIBE</b>
+    </pre>
+    <pre style="font-size: 25px;">                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                              Vivamus lacinia odio vitae vestibulum vestibulum.
+    </pre>   
+     
+    <div class="subscribe-container">
+        <input type="email" placeholder="     Your Email" maxlength="100" class="email-input">
+        <a href="#" class="subscribe-btn"  style="font-weight: bold; font-size: 20px;">SUBSCRIBE</a>
+    </div>
+</div>
+
+
+<div class="black">
+    <pre>
+
+
+
+    </pre>
+    <div class="row2" style="font-size: 20px;">
+        <div class="column2">
+            <b style="font-weight: bold; font-size: 25px;">MUSICOLOGY</b>
+            <pre>
+
+Lorem ipsum dolor sit amet, consecte-
+tur adipiscing elit.Aliquam at dignis-
+sium nunc,id maximus ex.Etiam nec
+dignissim elit,at dugnissim enim.
+
+
+            </pre> 
+
+            <div class="column2-icons">
+                <img src="11.png" height="30vh"> 
+                <img src="10.png" height="30vh"> 
+                <img src="9.png" height="30vh"> 
+                <img src="8.png" height="30vh"> 
+            </div>  
+        </div>
+      
+        <div class="column4">
+            <pre>
+  <b style="font-weight: bold; font-size: 25px;">ABOUT</b>
+
+  History
+
+  Our Team
+
+  Brand Guidelines
+
+  Terms & Condition
+
+  Privacy Policy
+            </pre>
+           
+        </div>
+          
+        <div class="column4">
+            <pre>
+  <b style="font-weight: bold; font-size: 25px;">SERVICES</b>
+
+  How to Order
+
+  Our Product
+
+  Order Status
+
+  Promo
+
+  Payment Method
+            </pre>
+           
+        </div>
+           
+        <div class="column4">
+            <pre>
+<b style="font-weight: bold; font-size: 25px;">OTHER</b>
+
+Contact Us
+
+Help
+
+Privacy
+            </pre>
+           
+        </div>
+    </div>
+    <pre>
+
+
+    </pre>
+</div>
+
+  
+</body>
+</html>
